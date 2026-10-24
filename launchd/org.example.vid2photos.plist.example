@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+  <key>Label</key><string>org.example.vid2photos</string>
+  <key>ProgramArguments</key><array>
+    <string>REPLACE_WITH_ABSOLUTE_PYTHON_PATH</string>
+    <string>REPLACE_WITH_ABSOLUTE_PROJECT_PATH/vid2photos.py</string>
+  </array>
+  <key>EnvironmentVariables</key><dict>
+    <key>PATH</key><string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+    <key>VID2PHOTOS_HOST</key><string>127.0.0.1</string>
+    <key>VID2PHOTOS_PORT</key><string>7201</string>
+    <key>VID2PHOTOS_TOKEN_FILE</key><string>REPLACE_WITH_ABSOLUTE_TOKEN_PATH</string>
+  </dict>
+  <key>KeepAlive</key><true/>
+  <key>RunAtLoad</key><true/>
+  <key>ThrottleInterval</key><integer>10</integer>
+  <key>StandardOutPath</key><string>REPLACE_WITH_ABSOLUTE_LOG_PATH</string>
+  <key>StandardErrorPath</key><string>REPLACE_WITH_ABSOLUTE_LOG_PATH</string>
+</dict></plist>

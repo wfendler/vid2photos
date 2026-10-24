@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+*.log
+*.mp4
+*.mov
+*.shortcut
+*.sqlite*
+token
+secrets/
+*.plist
+.DS_Store
