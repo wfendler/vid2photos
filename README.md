@@ -4,7 +4,7 @@ A small Python HTTP service that downloads a video with yt-dlp and returns an MP
 
 ## Requirements
 
-macOS, Python 3.10+, yt-dlp, and FFmpeg (including ffprobe). Python uses only its standard library. The extracted installation used Python 3.15.0, yt-dlp 2026.10.21, and FFmpeg 9.0.2. Extractors depend on changing upstream sites; these versions are provenance, not a promise that every site works.
+macOS, Python 3.10+, yt-dlp, and FFmpeg (including ffprobe). The server also runs on Linux; point `VID2PHOTOS_BIN` at one folder containing all three executables (symlinks are fine). Python uses only its standard library. The extracted installation used Python 3.15.0, yt-dlp 2026.10.21, and FFmpeg 9.0.2. Extractors depend on changing upstream sites; these versions are provenance, not a promise that every site works.
 
 With Homebrew installed, install dependencies using `brew install python yt-dlp ffmpeg`. This repository does not install them automatically. For reproducible experiments record `python3 --version`, `yt-dlp --version`, and `ffmpeg -version`; Homebrew resolves current packages rather than an immutable lockfile.
 
