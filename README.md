@@ -39,7 +39,7 @@ A phone cannot reach the Mac's loopback address. For a trusted private network, 
 - `GET /health`: unauthenticated health response.
 - `GET /dl?url=<percent-encoded-page-url>`: download a video.
 - Add `s=<seconds>` and/or `e=<seconds>` for an optional clip. Values must be finite and nonnegative; end must exceed start when both are provided.
-- Send `Authorization: Bearer YOUR_LOCAL_TOKEN`. Legacy `token` query authentication is supported, but the header avoids placing credentials in URLs.
+- Send `Authorization: Bearer YOUR_LOCAL_TOKEN`. The header is the only accepted credential; a `token` query parameter is ignored and the request gets 401, so the token never lands in URLs, client history or proxy logs.
 
 Success returns `video/mp4` with an attachment filename. Errors return text with filename `error.txt` (400 invalid input, 401 authentication, 502 download/transcode failure, 504 timeout). Error details sent to the authenticated client may include upstream diagnostics. HTTP access/parser-error logging is suppressed; application logs omit requested URLs and video titles. Compatible video in a non-MP4 container is remuxed with AAC audio; ffprobe checks the final container before it is served. Files are temporarily downloaded and removed after the response; the client must save the returned video. Private/authenticated websites, cookies, DRM, playlists, and guaranteed compatibility with every site are outside this project.
 

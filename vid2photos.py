@@ -170,11 +170,11 @@ class Handler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(data)
 
-    def authorized(self, q):
+    def authorized(self):
+        # Header only: a token in the query string ends up in client history,
+        # proxies and any access log along the way.
         auth = self.headers.get("Authorization", "")
-        if TOKEN and auth.startswith("Bearer ") and auth[7:].strip() == TOKEN:
-            return True
-        return bool(TOKEN) and q.get("token", [""])[0] == TOKEN
+        return bool(TOKEN) and auth.startswith("Bearer ") and auth[7:].strip() == TOKEN
 
     def do_GET(self):
         parsed = urllib.parse.urlsplit(self.path)
@@ -184,7 +184,7 @@ class Handler(BaseHTTPRequestHandler):
             return self.send_text(200, "ok\n")
         if parsed.path != "/dl":
             return self.send_text(404, "not found\n")
-        if not self.authorized(q):
+        if not self.authorized():
             return self.send_text(401, "unauthorized\n")
 
         url = q.get("url", [""])[0].strip()

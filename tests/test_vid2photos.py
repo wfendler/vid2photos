@@ -46,6 +46,8 @@ class ServiceTests(unittest.TestCase):
             for path, auth, expected in [
                 ('/health', '', 200),
                 ('/dl?url=https://example.com/video', '', 401),
+                ('/dl?url=https://example.com/video&token=test-only-placeholder', '', 401),
+                ('/dl?url=https://example.com/video', 'Bearer wrong', 401),
                 ('/dl', 'Bearer test-only-placeholder', 400),
                 ('/dl?url=https://example.com/video&s=5&e=2', 'Bearer test-only-placeholder', 400),
             ]:
